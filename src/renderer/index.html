@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; font-src 'self'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小申桌宠</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app" id="app">
+    <section class="stage" id="stage" aria-label="小申的 3D 舞台">
+      <div class="stage-halo" aria-hidden="true"></div>
+      <div class="bubble-wrap" id="bubbleWrap" hidden>
+        <button class="bubble" id="bubble" type="button" aria-label="小申的对话气泡">
+          <span class="bubble-name">小申</span>
+          <span class="bubble-text" id="bubbleText"></span>
+          <span class="bubble-tail" aria-hidden="true"></span>
+        </button>
+      </div>
+      <canvas id="scene" aria-label="小申的三维形象"></canvas>
+      <div class="particles" id="particles" aria-hidden="true"></div>
+      <div class="focus-chip" id="focusChip" hidden>
+        <span class="focus-dot"></span>
+        <span class="focus-chip-label" id="focusChipLabel">专注</span>
+        <span class="focus-chip-time" id="focusChipTime">25:00</span>
+      </div>
+      <div class="signature" id="signature">
+        <span class="signature-mark" aria-hidden="true"></span>
+        <span class="signature-text">小申</span>
+        <span class="signature-status" id="signatureStatus">在线</span>
+      </div>
+      <div class="dock" id="dock" role="toolbar" aria-label="小申的快捷操作">
+        <button class="dock-btn" type="button" data-action="panel" data-panel="interact" title="陪伴菜单" aria-label="打开陪伴菜单" data-testid="dock-interact"></button>
+        <button class="dock-btn" type="button" data-action="panel" data-panel="chat" title="和小申聊天" aria-label="打开聊天" data-testid="dock-chat"></button>
+        <button class="dock-btn" type="button" data-action="panel" data-panel="focus" title="番茄钟与提醒" aria-label="打开专注工具" data-testid="dock-focus"></button>
+        <button class="dock-btn" type="button" data-action="panel" data-panel="dress" title="换装与视角" aria-label="打开衣橱" data-testid="dock-dress"></button>
+      </div>
+    </section>
+
+    <aside class="panel" id="panel" aria-label="小申的面板" hidden>
+      <div class="panel-card">
+        <div class="panel-header" id="panelHeader"></div>
+        <div class="panel-body" id="panelBody"></div>
+      </div>
+    </aside>
+
+    <div class="context-menu" id="contextMenu" hidden></div>
+    <div class="toast-layer" id="toastLayer" aria-live="polite"></div>
+    <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+  </div>
+  <script src="../../dist/renderer/app.js" defer></script>
+</body>
+</html>

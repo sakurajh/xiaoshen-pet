@@ -1,0 +1,71 @@
+{
+  "name": "xiaoshen-pet",
+  "version": "1.0.0",
+  "description": "小申桌宠 —— 基于 Electron + Three.js 的 3D 卡通桌面宠物",
+  "main": "src/main/main.js",
+  "author": "sakurajh",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sakurajh/xiaoshen-pet.git"
+  },
+  "homepage": "https://github.com/sakurajh/xiaoshen-pet#readme",
+  "bugs": {
+    "url": "https://github.com/sakurajh/xiaoshen-pet/issues"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build:renderer": "node scripts/build.mjs",
+    "start": "npm run build:renderer && node scripts/start.mjs",
+    "dev": "node scripts/dev.mjs",
+    "test:unit": "node --test tests/unit/*.test.mjs",
+    "test:e2e": "npm run build:renderer && node tests/e2e.mjs",
+    "test:boundary": "npm run build:renderer && node tests/boundary.mjs",
+    "test": "npm run test:unit && npm run test:e2e",
+    "dist": "npm run build:renderer && electron-builder --win portable --x64"
+  },
+  "dependencies": {
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "electron": "^45.0.0",
+    "electron-builder": "^26.15.3",
+    "esbuild": "^0.25.0",
+    "playwright-core": "^1.64.1"
+  },
+  "build": {
+    "appId": "com.xiaoshen.pet",
+    "productName": "小申桌宠",
+    "asar": true,
+    "files": [
+      "src/main/**/*",
+      "src/renderer/index.html",
+      "src/renderer/styles.css",
+      "dist/renderer/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico",
+      "artifactName": "XiaoShen-Pet-${version}.exe"
+    },
+    "portable": {
+      "artifactName": "XiaoShen-Pet-${version}.exe",
+      "requestExecutionLevel": "user"
+    }
+  }
+}

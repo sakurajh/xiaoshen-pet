@@ -1,0 +1,41 @@
+# dependencies & build output
+node_modules/
+dist/
+release/
+coverage/
+
+# local test artifacts (screenshots / portraits, never commit)
+tests/out/
+tests/*-userdata/
+tests/*.log
+
+# runtime user data
+preferences.json
+*.local
+*.user
+
+# local backups & editor files
+*.bak
+*.bak-*
+*.orig
+*.rej
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+
+# secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+
+# personal photos should never enter this repository
+*.jpg
+*.jpeg
+*.webp
+*.heic
+*.raw
